@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Alice Johnson",
+    "image": "https://i.ibb.co/PthLJZz/avatar-1.jpg",
+    "description": "I recently moved into the Modern Apartment, and it exceeded my expectations. The layout is fantastic, and the agent, John Doe, was incredibly helpful throughout the process. The location is convenient, and I'm enjoying the contemporary design of the apartment.",
+    "title": "Modern Apartment"
+  },
+  {
+    "name": "Bob Smith",
+    "image": "https://i.ibb.co/1GbFMK6/team2.jpg",
+    "description": "Our family loves the spacious Family Home with Garden. Jane Smith, the agent, was fantastic to work with. The garden is a delightful bonus, and the neighborhood is peaceful. It's a perfect fit for our family's needs.",
+    "title": "Family Home with Garden"
+  },
+  {
+    "name": "David Brown",
+    "image": "https://i.ibb.co/N67Zwpp/avatar-2.jpg",
+    "description": "The Luxurious Penthouse is truly stunning! Robert Johnson, the agent, ensured a smooth process. The panoramic views are breathtaking, and the interior is luxurious and well-designed. Living here feels like a dream come true.",
+    "title": "Luxurious Penthouse"
+  }
+]
