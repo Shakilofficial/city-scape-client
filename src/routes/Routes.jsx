@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import ErrorPage from "../pages/Error/Error";
 import AllProperties from "../pages/AllProperties/AllProperties";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,11 +20,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/properties",
-        element: <AllProperties />,
+        element: (
+          <PrivateRoute>
+            <AllProperties />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -3,7 +3,6 @@ import logo from "../../assets/images/LogoI.png";
 import { Link } from "react-router-dom";
 import avatarImg from "../../assets/images/placeholder.jpg";
 import useAuth from "../../hooks/useAuth";
-import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();

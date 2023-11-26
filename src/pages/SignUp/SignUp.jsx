@@ -4,6 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import { imageUpload } from "../../api/utils";
 import { getToken, saveUser } from "../../api/auth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
@@ -33,7 +35,13 @@ const SignUp = () => {
       //get token
       await getToken(result?.user?.email);
       navigate("/");
-      toast.success("Successfully SignUp");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Successfully SignUp",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     } catch (err) {
       toast.error(err?.message);
     }
@@ -48,7 +56,13 @@ const SignUp = () => {
       //get token
       await getToken(result?.user?.email);
       navigate("/");
-      toast.success("Successfully SignUp");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Successfully SignUp",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     } catch (err) {
       toast.error(err?.message);
     }

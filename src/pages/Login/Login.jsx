@@ -1,7 +1,62 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import loginImg from "../../assets/images/login.svg";
+import useAuth from "../../hooks/useAuth";
+import { getToken, saveUser } from "../../api/auth";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+
 const Login = () => {
+  const { signIn, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  //form submit handler
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const result = await signIn(email, password);
+      //get token
+      await getToken(result?.user?.email);
+      navigate(from, { replace: true });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Log In Successfully",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const dbResponse = await saveUser(result?.user);
+      console.log(dbResponse);
+
+      //get token
+      await getToken(result?.user?.email);
+      navigate("/");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Log In Successfully",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      navigate(from, { replace: true });
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="py-8 text-center">
@@ -13,6 +68,7 @@ const Login = () => {
         <img className="w-[420px]" src={loginImg} alt="" />
         <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 text-gray-900">
           <form
+            onSubmit={handleSubmit}
             noValidate=""
             action=""
             className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -71,7 +127,10 @@ const Login = () => {
             </p>
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           </div>
-          <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+          <div
+            onClick={handleGoogleSignIn}
+            className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+          >
             <FcGoogle size={30} />
 
             <p>Continue with Google</p>
