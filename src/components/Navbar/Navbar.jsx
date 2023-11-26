@@ -1,8 +1,27 @@
 import { useState } from "react";
 import logo from "../../assets/images/LogoI.png";
 import { Link } from "react-router-dom";
+import avatarImg from "../../assets/images/placeholder.jpg";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user,signOut } = useAuth();
+
+  const handleLogOut = () => {
+    signOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Logging Out",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMobileMenuToggle = () => {
@@ -29,18 +48,23 @@ const Navbar = () => {
     </>
   );
 
-  const navButton = (
-    <Link to="/login">
-      <button className="py-2 px-3 bg-sky-600 rounded-md text-white">
-        Log in
-      </button>
+  const navButton = user ? (
+    <button
+      onClick={handleLogOut}
+      className="py-2 px-3 bg-sky-600 rounded-md text-white"
+    >
+      Log Out
+    </button>
+  ) : (
+    <Link className="py-2 px-3 bg-sky-600 rounded-md text-white" to="/login">
+      Log In
     </Link>
   );
   return (
     <nav>
       <div className="p-3 shadow-md rounded-md">
         <div className="flex justify-between">
-          <div className="flex space-x-4 md:gap-48">
+          <div className="flex space-x-4 md:gap-16 lg:gap-48">
             {/* Logo */}
             <div className="flex justify-center items-center">
               <Link
@@ -62,8 +86,19 @@ const Navbar = () => {
           </div>
 
           {/* Secondary Nav */}
-          <div className="hidden md:flex items-center font-semibold">
-            {navButton}
+          <div className="hidden md:flex gap-4 items-center font-semibold">
+            <div className="">
+              {/* Avatar */}
+              <img
+                className="rounded-full"
+                referrerPolicy="no-referrer"
+                src={user && user.photoURL ? user.photoURL : avatarImg}
+                alt="profile"
+                height="30"
+                width="30"
+              />
+            </div>
+            <div>{navButton}</div>
           </div>
 
           {/* Mobile Button */}
@@ -97,8 +132,18 @@ const Navbar = () => {
       >
         <div className="p-4 font-semibold text-center shadow-lg rounded-lg space-y-3 bg-blue-100  list-none">
           {navLinks}
-
+          <div className="flex justify-center gap-4">
+            {/* Avatar */}
+            <img
+              className="rounded-full"
+              referrerPolicy="no-referrer"
+              src={user && user.photoURL ? user.photoURL : avatarImg}
+              alt="profile"
+              height="30"
+              width="30"
+            />
           <div>{navButton}</div>
+          </div>
         </div>
       </div>
     </nav>
