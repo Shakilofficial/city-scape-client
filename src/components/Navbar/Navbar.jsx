@@ -6,21 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user,signOut } = useAuth();
-
-  const handleLogOut = () => {
-    signOut()
-      .then(() => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfully Logging Out",
-          showConfirmButton: false,
-          timer: 1000,
-        });
-      })
-      .catch((error) => console.log(error));
-  };
+  const { user, logOut } = useAuth();
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -50,7 +36,7 @@ const Navbar = () => {
 
   const navButton = user ? (
     <button
-      onClick={handleLogOut}
+      onClick={logOut}
       className="py-2 px-3 bg-sky-600 rounded-md text-white"
     >
       Log Out
@@ -142,7 +128,7 @@ const Navbar = () => {
               height="30"
               width="30"
             />
-          <div>{navButton}</div>
+            <div>{navButton}</div>
           </div>
         </div>
       </div>

@@ -1,7 +1,59 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { imageUpload } from "../../api/utils";
+import { getToken, saveUser } from "../../api/auth";
+import toast from "react-hot-toast";
 const SignUp = () => {
+  const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
+
+  //form submit handler
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const image = form.image.files[0];
+
+    try {
+      //upload image
+      const imageData = await imageUpload(image);
+      //user registration
+      const result = await createUser(email, password);
+      //save username & profile photo
+      await updateUserProfile(name, imageData?.data?.display_url);
+      console.log(result);
+      //save user data in database
+      const dbResponse = await saveUser(result?.user);
+      console.log(dbResponse);
+      //result.user.email
+
+      //get token
+      await getToken(result?.user?.email);
+      navigate("/");
+      toast.success("Successfully SignUp");
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const dbResponse = await saveUser(result?.user);
+      console.log(dbResponse);
+
+      //get token
+      await getToken(result?.user?.email);
+      navigate("/");
+      toast.success("Successfully SignUp");
+    } catch (err) {
+      toast.error(err?.message);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -10,6 +62,7 @@ const SignUp = () => {
           <p className="text-sm text-gray-400">Welcome to City Scape</p>
         </div>
         <form
+          onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -88,7 +141,10 @@ const SignUp = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+        <div
+          onClick={handleGoogleSignIn}
+          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+        >
           <FcGoogle size={30} />
 
           <p>Continue with Google</p>

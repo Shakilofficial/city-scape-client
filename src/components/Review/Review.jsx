@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -24,9 +23,13 @@ const Review = () => {
       <div className="my-10">
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           {reviews.map((review) => (
-            <SwiperSlide key={review._id}>
+            <SwiperSlide key={review.name}>
               <div className="flex flex-col bg-sky-50 p-12 rounded-md items-center justify-center my-8 mx-8 md:mx-24 space-y-8">
-                <img className="h-16 w-16 rounded-full" src={review.image} alt="" />
+                <img
+                  className="h-16 w-16 rounded-full"
+                  src={review.image}
+                  alt=""
+                />
                 <p>{review.description} </p>
                 <h4 className="text-xl font-semibold text-sky-600">
                   {review.name}
