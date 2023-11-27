@@ -1,0 +1,34 @@
+.reviews-list {
+  list-style: none;
+  padding: 0;
+}
+
+.review-item {
+  margin-bottom: 10px;
+}
+
+.add-review-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.review-textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.submit-review-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}

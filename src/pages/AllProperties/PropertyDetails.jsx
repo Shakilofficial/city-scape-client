@@ -1,13 +1,36 @@
 import { FaDollarSign, FaUser } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
 import axiosSecure from "../../api";
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useState, useEffect } from "react";
+import Modal from "react-modal";
+import "./modal.css";
+Modal.setAppElement("#root");
 
 const PropertyDetails = () => {
-  const property = useLoaderData();
+  const [reviews, setReviews] = useState([]);
+  const [isReviewModalOpen, setReviewModalOpen] = useState(false);
+  const [newReview, setNewReview] = useState("");
   const { user } = useAuth();
+
+  const property = useLoaderData();
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axiosSecure.get(
+          `/reviews?propertyId=${property._id}`
+        );
+        setReviews(response.data);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, [property._id]);
 
   const handleAddToWishlist = () => {
     if (user && user.email && property && property._id) {
@@ -19,6 +42,7 @@ const PropertyDetails = () => {
         image: property.image,
         price: property.price,
       };
+
       axiosSecure
         .post("/wishlist", wishlistItem)
         .then((res) => {
@@ -35,6 +59,46 @@ const PropertyDetails = () => {
         })
         .catch((error) => {
           console.error("Error adding to wishlist:", error);
+        });
+    }
+  };
+
+  const handleAddReview = () => {
+    if (user && user.email && property && property._id && newReview) {
+      const reviewData = {
+        propertyId: property._id,
+        email: user.email,
+        image: user.photoURL,
+        name: user.displayName,
+        title: property.title,
+        description: newReview,
+      };
+
+      axiosSecure
+        .post("/reviews", reviewData)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            setReviewModalOpen(false);
+
+            axiosSecure
+              .get(`/reviews?propertyId=${property._id}`)
+              .then((response) => setReviews(response.data))
+              .catch((error) =>
+                console.error("Error fetching reviews:", error)
+              );
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Review added successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error adding review:", error);
         });
     }
   };
@@ -75,6 +139,72 @@ const PropertyDetails = () => {
         <div className="mb-4">
           <p className="text-gray-700">{property.details.description}</p>
         </div>
+      </div>
+      <div className="mt-6 max-w-7xl mx-auto text-center">
+        {/* ... Other property details */}
+        <h2 className="text-2xl font-bold text-sky-400 mb-4">
+          Customer Reviews
+        </h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-2">
+          {reviews.map((review) => (
+            <li
+              key={review._id}
+              className="review-item bg-white rounded-lg shadow-md p-4 mb-4"
+            >
+              <div className="flex flex-col justify-center items-center mb-4">
+                <img
+                  src={review.image}
+                  alt={review.name}
+                  className="h-24 w-24 rounded-full object-cover"
+                />
+              </div>
+              <h3 className="font-bold text-xl mb-2">{review.name}</h3>
+              <p className="text-gray-700">{review.description}</p>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          className="add-review-button text-sm rounded-lg"
+          onClick={() => setReviewModalOpen(true)}
+        >
+          Add Review
+        </button>
+
+        <Modal
+          isOpen={isReviewModalOpen}
+          onRequestClose={() => setReviewModalOpen(false)}
+          contentLabel="Add Review Modal"
+          className="modal-content text-center"
+          overlayClassName="modal-overlay"
+          style={{
+            content: {
+              position: "absolute",
+              backgroundColor: "#D9F2FF",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "400px",
+              borderRadius: "8px",
+              padding: "20px",
+              boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+            },
+            overlay: {
+              backgroundColor: "#54ECFF",
+              zIndex: "1000",
+            },
+          }}
+        >
+          <h2>Add Review</h2>
+          <textarea
+            value={newReview}
+            onChange={(e) => setNewReview(e.target.value)}
+            className="review-textarea"
+          />
+          <button onClick={handleAddReview} className="submit-review-button">
+            Submit Review
+          </button>
+        </Modal>
       </div>
     </div>
   );
