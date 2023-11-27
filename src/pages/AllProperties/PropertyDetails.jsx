@@ -1,34 +1,41 @@
-import { useState } from "react";
 import { FaDollarSign, FaUser } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import axiosSecure from "../../api";
+import useAuth from "../../hooks/useAuth";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
-  const [isInWishlist, setIsInWishlist] = useState(false);
+  const { user } = useAuth();
 
-  // Toggle wishlist status
-  const handleToggleWishlist = async () => {
-    try {
-      // Assuming _id is the property ID
-      const { _id } = property;
-
-      // Update wishlist status in the database
-      const response = await fetch(`/wishlist/${_id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          isInWishlist: !isInWishlist,
-        }),
-      });
-      const data = await response.json();
-
-      // Update local state
-      setIsInWishlist(data.isInWishlist);
-    } catch (error) {
-      console.error("Error updating wishlist status:", error);
+  const handleAddToWishlist = () => {
+    if (user && user.email && property && property._id) {
+      const wishlistItem = {
+        propertyId: property._id,
+        email: user.email,
+        name: user.displayName,
+        title: property.title,
+        image: property.image,
+        price: property.price,
+      };
+      axiosSecure
+        .post("/wishlist", wishlistItem)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${property.title} added to your wishlist`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error adding to wishlist:", error);
+        });
     }
   };
 
@@ -39,12 +46,10 @@ const PropertyDetails = () => {
         <div className="flex justify-between items-center px-4 mb-4">
           <h1 className="text-2xl font-bold">{property.title}</h1>
           <button
-            className={`bg-blue-500 text-white px-4 py-2 rounded-full ${
-              isInWishlist ? "bg-red-500" : "hover:bg-blue-700"
-            }`}
-            onClick={handleToggleWishlist}
+            className="bg-blue-500 text-sm text-white px-4 py-2 rounded-full hover:bg-blue-700"
+            onClick={handleAddToWishlist}
           >
-            {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+            Add to Wishlist
           </button>
         </div>
         <div className="mb-4">
