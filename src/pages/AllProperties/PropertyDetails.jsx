@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
 import { FaDollarSign, FaUser } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
-import axiosSecure from "../../api";
-import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
-import { useState, useEffect } from "react";
 import Modal from "react-modal";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import axiosSecure from "../../api";
+import useAuth from "../../hooks/useAuth";
 import "./modal.css";
 Modal.setAppElement("#root");
 
@@ -41,6 +41,9 @@ const PropertyDetails = () => {
         title: property.title,
         image: property.image,
         price: property.price,
+        status: property.status,
+        agent_name: property.agent.name,
+        agent_image: property.agent.image,
       };
 
       axiosSecure
