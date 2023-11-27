@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
         element: <WishList />,
       },
       {
-        path: "dashboard/make-offer/:id",
+        path: "/dashboard/make-offer/:id",
         element: <MakeOffer />,
       },
     ],
