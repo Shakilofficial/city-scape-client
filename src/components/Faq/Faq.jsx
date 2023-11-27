@@ -8,7 +8,7 @@ const Faq = () => {
           subHeading="How it works"
           heading="Frequently Asked Questions"
         ></SectionTitle>
-        <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+        <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-700 bg-sky-100 rounded-lg">
           <details>
             <summary className="py-2 outline-none cursor-pointer font-semibold text-sky-600 focus:underline">
               How can I list my property on City Scape?
@@ -16,7 +16,7 @@ const Faq = () => {
             <div className="px-4 pb-4">
               <p>
                 To list your property on City Scape, navigate to the Dashboard
-                page, click on "Add Property," and fill out the required
+                page, click on Add Property and fill out the required
                 information, including property details, images, and pricing.
                 Our team will then review and verify your listing.
               </p>
@@ -31,25 +31,25 @@ const Faq = () => {
                 Include essential details such as property type, location,
                 number of bedrooms and bathrooms, amenities, and pricing.
                 High-quality images showcasing different areas of the property
-                can significantly enhance your listing's appeal.
+                can significantly enhance your listings appeal.
               </p>
             </div>
           </details>
           <details>
             <summary className="py-2 outline-none cursor-pointer font-semibold text-sky-600 focus:underline">
-              How does the property verification process work? 
+              How does the property verification process work?
             </summary>
             <div className="px-4 pb-4 space-y-2">
               <p>
                 Our verification process ensures the accuracy and reliability of
                 property listings. After submission, our team reviews the
                 information provided. Once verified, your property will receive
-                a "Verified" status, boosting its credibility among potential
+                a Verified status, boosting its credibility among potential
                 buyers or renters.
               </p>
               <p>
                 If additional information is required or discrepancies are
-                found, you'll be notified for clarification or updates.
+                found, you will be notified for clarification or updates.
               </p>
             </div>
           </details>

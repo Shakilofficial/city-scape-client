@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Offer = () => {
   return (
-    <div className="p-6 py-12 bg-sky-500 text-gray-900">
+    <div className="p-6 py-12 bg-sky-500 text-gray-900 rounded-md">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <h2 className="text-center text-3xl tracking-tight font-extrabold">

@@ -7,7 +7,13 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) return <DotLoader color="#36d7b7" />;
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <DotLoader color="#36d7b7" />
+      </div>
+    );
+  }
   if (user) return children;
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };

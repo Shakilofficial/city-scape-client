@@ -5,9 +5,9 @@
     "location": "123 Main Street, Cityville",
     "agent": {
       "name": "John Doe",
-      "image": "agent1.jpg"
+      "image": "https://i.ibb.co/W5gQ4DJ/avatar-5.jpghttps://i.ibb.co/W5gQ4DJ/avatar-5.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "1500",
     "details": {
       "bedrooms": 2,
@@ -22,9 +22,9 @@
     "location": "456 Oak Avenue, Suburbia",
     "agent": {
       "name": "Jane Smith",
-      "image": "agent2.jpg"
+      "image": "https://i.ibb.co/PthLJZz/avatar-1.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "2500",
     "details": {
       "bedrooms": 4,
@@ -39,9 +39,9 @@
     "location": "789 Skyline Drive, Uptown",
     "agent": {
       "name": "Robert Johnson",
-      "image": "agent3.jpg"
+      "image": "https://i.ibb.co/1GbFMK6/team2.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "4000",
     "details": {
       "bedrooms": 3,
@@ -56,9 +56,9 @@
     "location": "101 Pine Lane, Lakeside",
     "agent": {
       "name": "Emily Brown",
-      "image": "agent4.jpg"
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "2000",
     "details": {
       "bedrooms": 2,
@@ -73,9 +73,9 @@
     "location": "222 Elm Street, Downtown",
     "agent": {
       "name": "Michael Wilson",
-      "image": "agent5.jpg"
+      "image": "https://i.ibb.co/KFRFMq9/portrait-white-man-isolated-1.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "2200",
     "details": {
       "bedrooms": 3,
@@ -90,9 +90,9 @@
     "location": "333 Summit Trail, Mountainside",
     "agent": {
       "name": "Samantha Taylor",
-      "image": "agent6.jpg"
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "4500",
     "details": {
       "bedrooms": 4,
@@ -107,9 +107,9 @@
     "location": "789 Maple Lane, Suburbia",
     "agent": {
       "name": "David Miller",
-      "image": "agent7.jpg"
+      "image": "https://i.ibb.co/PthLJZz/avatar-1.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "2500",
     "details": {
       "bedrooms": 3,
@@ -124,9 +124,9 @@
     "location": "456 Brick Lane, Historic District",
     "agent": {
       "name": "Ella Johnson",
-      "image": "agent8.jpg"
+      "image": "https://i.ibb.co/W5gQ4DJ/avatar-5.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "3500",
     "details": {
       "bedrooms": 2,
@@ -141,9 +141,9 @@
     "location": "789 Oceanview Drive, Beachside",
     "agent": {
       "name": "Olivia White",
-      "image": "agent9.jpg"
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "6000",
     "details": {
       "bedrooms": 5,
@@ -158,9 +158,9 @@
     "location": "101 Meadow Lane, Countryside",
     "agent": {
       "name": "William Turner",
-      "image": "agent10.jpg"
+      "image": "https://i.ibb.co/KFRFMq9/portrait-white-man-isolated-1.jpg"
     },
-    "status": "Verified",
+    "status": "Available",
     "price": "3000",
     "details": {
       "bedrooms": 3,
