@@ -26,7 +26,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/dashboard" className="text-sky-600 hover:text-sky-800">
+        <Link to="/dashboard/wishlist" className="text-sky-600 hover:text-sky-800">
           Dashboard
         </Link>
       </li>

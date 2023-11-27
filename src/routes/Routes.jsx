@@ -10,6 +10,7 @@ import PropertyDetails from "../pages/AllProperties/PropertyDetails";
 import { getSingleProperties } from "../api/properties";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import WishList from "../pages/Dashboard/WishList/WishList";
+import MakeOffer from "../pages/Dashboard/WishList/MakeOffer";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/wishlist",
         element: <WishList />,
+      },
+      {
+        path: "dashboard/make-offer/:id",
+        element: <MakeOffer />,
       },
     ],
   },

@@ -42,6 +42,7 @@ const PropertyDetails = () => {
         image: property.image,
         price: property.price,
         status: property.status,
+        location: property.location,
         agent_name: property.agent.name,
         agent_image: property.agent.image,
       };
