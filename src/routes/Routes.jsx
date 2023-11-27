@@ -7,6 +7,8 @@ import ErrorPage from "../pages/Error/Error";
 import AllProperties from "../pages/AllProperties/AllProperties";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import PropertyDetails from "../pages/AllProperties/PropertyDetails";
+import { getSingleProperties } from "../api/properties";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,15 @@ export const router = createBrowserRouter([
             <AllProperties />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/properties/:id",
+        element: (
+          <PrivateRoute>
+            <PropertyDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => getSingleProperties(params.id),
       },
       {
         path: "/dashboard",
