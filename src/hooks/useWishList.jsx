@@ -1,6 +1,6 @@
 
 
-const Dashboard = () => {
+const useWishList = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default useWishList;

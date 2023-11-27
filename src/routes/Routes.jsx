@@ -5,10 +5,11 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import ErrorPage from "../pages/Error/Error";
 import AllProperties from "../pages/AllProperties/AllProperties";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import PropertyDetails from "../pages/AllProperties/PropertyDetails";
 import { getSingleProperties } from "../api/properties";
+import Dashboard from "../layouts/Dashboard/Dashboard";
+import WishList from "../pages/Dashboard/WishList/WishList";
 
 export const router = createBrowserRouter([
   {
@@ -37,13 +38,19 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) => getSingleProperties(params.id),
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
+        path: "/dashboard/wishlist",
+        element: <WishList />,
       },
     ],
   },

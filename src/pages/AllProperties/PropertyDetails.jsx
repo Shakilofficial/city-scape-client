@@ -104,7 +104,7 @@ const PropertyDetails = () => {
   };
 
   return (
-    <div className="my-6">
+    <div className="my-6 px-4">
       <div className="max-w-3xl mx-auto p-2">
         {/* Property Details */}
         <div className="flex justify-between items-center px-4 mb-4">
