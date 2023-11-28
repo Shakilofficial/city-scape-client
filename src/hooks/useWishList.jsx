@@ -1,13 +1,13 @@
-import useAuth from "./useAuth";
-import axiosSecure from "../api";
 import { useQuery } from "@tanstack/react-query";
+import axiosSecure from "../api";
+import useAuth from "./useAuth";
 
 const useWishList = () => {
   const { user } = useAuth();
   const { refetch, data: wishlist = [] } = useQuery({
     queryKey: ["wishlist", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/wishlist?email=${user.email}`);
+      const res = await axiosSecure.get(`/wishlist/${user.email}`);
       return res.data;
     },
   });

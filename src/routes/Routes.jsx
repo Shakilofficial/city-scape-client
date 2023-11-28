@@ -1,16 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
+import { getSingleProperties, getSingleWishList } from "../api/properties";
+import Dashboard from "../layouts/Dashboard/Dashboard";
 import Main from "../layouts/Main";
+import AllProperties from "../pages/AllProperties/AllProperties";
+import PropertyDetails from "../pages/AllProperties/PropertyDetails";
+import MakeOffer from "../pages/Dashboard/WishList/MakeOffer";
+import WishList from "../pages/Dashboard/WishList/WishList";
+import ErrorPage from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import ErrorPage from "../pages/Error/Error";
-import AllProperties from "../pages/AllProperties/AllProperties";
 import PrivateRoute from "./PrivateRoute";
-import PropertyDetails from "../pages/AllProperties/PropertyDetails";
-import { getSingleProperties } from "../api/properties";
-import Dashboard from "../layouts/Dashboard/Dashboard";
-import WishList from "../pages/Dashboard/WishList/WishList";
-import MakeOffer from "../pages/Dashboard/WishList/MakeOffer";
+import Profile from "../pages/Dashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -50,12 +51,17 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "/dashboard/profile",
+        element: <Profile />,
+      },
+      {
         path: "/dashboard/wishlist",
         element: <WishList />,
       },
       {
         path: "/dashboard/make-offer/:id",
         element: <MakeOffer />,
+        loader: () => getSingleWishList(),
       },
     ],
   },

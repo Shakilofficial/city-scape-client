@@ -10,7 +10,7 @@ export const getSingleProperties = async (id) => {
   return data;
 };
 
-export const getSingleWishList = async (id) => {
-  const { data } = await axiosSecure(`/wishlist/${id}`);
+export const getSingleWishList = async () => {
+  const { data } = await axiosSecure(`/wishlist`);
   return data;
 };

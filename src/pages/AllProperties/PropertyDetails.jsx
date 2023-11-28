@@ -14,7 +14,6 @@ const PropertyDetails = () => {
   const [isReviewModalOpen, setReviewModalOpen] = useState(false);
   const [newReview, setNewReview] = useState("");
   const { user } = useAuth();
-
   const property = useLoaderData();
 
   useEffect(() => {
