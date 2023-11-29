@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { FaDollarSign, FaUser } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import Modal from "react-modal";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axiosSecure from "../../api";
 import useAuth from "../../hooks/useAuth";
 import "./modal.css";
+import { getAllReviews } from "../../api/properties";
 Modal.setAppElement("#root");
 
 const PropertyDetails = () => {
@@ -15,19 +16,15 @@ const PropertyDetails = () => {
   const [newReview, setNewReview] = useState("");
   const { user } = useAuth();
   const property = useLoaderData();
+  const { id } = useParams();
+  // console.log(id);
 
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axiosSecure.get(`/reviews?propertyId=${property._id}`);
-        setReviews(response.data);
-      } catch (error) {
-        console.error("Error fetching reviews:", error);
-      }
-    };
-  
-    fetchReviews();
-  }, [property._id]);
+    getAllReviews().then((data) => {
+      const filteredReviews = data.filter((review) => review.propertyId === id);
+      setReviews(filteredReviews);
+    });
+  }, [id]);
 
   const handleAddToWishlist = () => {
     if (user && user.email && property && property._id) {

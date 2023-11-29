@@ -14,3 +14,8 @@ export const getSingleWishList = async () => {
   const { data } = await axiosSecure(`/wishlist`);
   return data;
 };
+
+export const getAllReviews = async () => {
+  const { data } = await axiosSecure("/reviews");
+  return data;
+};

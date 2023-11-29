@@ -8,7 +8,12 @@ const Advertisements = () => {
 
   useEffect(() => {
     getAllProperties().then((data) => {
-      const sortedAdvertisements = data.sort((a, b) => b.price - a.price);
+      const filteredAdvertisements = data.filter(
+        (ad) => ad.status === "Verified"
+      );
+      const sortedAdvertisements = filteredAdvertisements.sort(
+        (a, b) => b.price - a.price
+      );
       const topSixAdvertisements = sortedAdvertisements.slice(0, 6);
       setAdvertisements(topSixAdvertisements);
     });
