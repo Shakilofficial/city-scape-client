@@ -13,7 +13,7 @@ const MakeOffer = () => {
 
   const property = properties.find((pr) => pr._id === id);
   const { user } = useAuth();
-
+console.log(property);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,6 +25,7 @@ const MakeOffer = () => {
           location: property.location,
           image: property.image,
           status: 'Pending',
+          agent_name:property.agent_name,
           offeredAmount,
           buyingDate,
           buyerEmail: user.email,

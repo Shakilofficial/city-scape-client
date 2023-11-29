@@ -13,6 +13,11 @@ import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Dashboard/Profile/Profile";
 import MyReviews from "../pages/Dashboard/MyReviews/MyReviews";
+import PropertyBought from "../pages/Dashboard/PropertyBought/PropertyBought";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import ManageReviews from "../pages/Dashboard/ManageReviews/ManageReviews";
+import ManageProperties from "../pages/Dashboard/ManageProperties/ManageProperties";
+import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +72,31 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/my-review",
         element: <MyReviews />,
+      },
+      {
+        path: "/dashboard/bookings",
+        element: <PropertyBought />,
+      },
+      //admin routes
+      {
+        path: "/dashboard/manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/dashboard/manage-reviews",
+        element: <ManageReviews />,
+      },
+      {
+        path: "/dashboard/manage-properties",
+        element: <ManageProperties />,
+      },
+      {
+        path: "/dashboard/manage-properties",
+        element: <ManageProperties />,
+      },
+      {
+        path: "/dashboard/admin-profile",
+        element: <AdminProfile />,
       },
     ],
   },
