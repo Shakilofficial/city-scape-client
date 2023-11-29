@@ -19,15 +19,13 @@ const PropertyDetails = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axiosSecure.get(
-          `/reviews?propertyId=${property._id}`
-        );
+        const response = await axiosSecure.get(`/reviews?propertyId=${property._id}`);
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
     };
-
+  
     fetchReviews();
   }, [property._id]);
 
@@ -74,6 +72,7 @@ const PropertyDetails = () => {
         image: user.photoURL,
         name: user.displayName,
         title: property.title,
+        agent_name: property.agent.name,
         description: newReview,
       };
 

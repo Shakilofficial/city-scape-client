@@ -12,6 +12,7 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Dashboard/Profile/Profile";
+import MyReviews from "../pages/Dashboard/MyReviews/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         path: "/dashboard/make-offer/:id",
         element: <MakeOffer />,
         loader: () => getSingleWishList(),
+      },
+      {
+        path: "/dashboard/my-review",
+        element: <MyReviews />,
       },
     ],
   },

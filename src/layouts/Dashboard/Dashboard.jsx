@@ -37,7 +37,7 @@ const Dashboard = () => {
             </li>
             <li className="p-2 bg-sky-200 rounded-md">
               <NavLink
-                to="/dashboard/review"
+                to="/dashboard/my-review"
                 className="flex justify-start items-center gap-2 font-bold"
               >
                 <FaQuoteLeft />
