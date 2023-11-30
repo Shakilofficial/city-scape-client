@@ -6,32 +6,31 @@ import { Link } from "react-router-dom";
 
 const AgentAddedProperties = () => {
   const [properties, refetch] = useProperties();
-    console.log(properties);
-    
-    const handleDelete = (id) => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            axiosSecure.delete(`/properties/${id}`).then((res) => {
-              if (res.data.deletedCount > 0) {
-                refetch();
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "Your file has been deleted.",
-                  icon: "success",
-                });
-              }
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/properties/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
             });
           }
         });
-      };
+      }
+    });
+  };
 
   return (
     <div>
@@ -66,7 +65,8 @@ const AgentAddedProperties = () => {
                 </div>
                 <div className="flex space-x-2">
                   {property.status === "Rejected" && (
-                    <Link to={`/dashboard/update-properties/${property._id}`}
+                    <Link
+                      to={`/dashboard/update-properties/${property._id}`}
                       className="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                     >
                       Update

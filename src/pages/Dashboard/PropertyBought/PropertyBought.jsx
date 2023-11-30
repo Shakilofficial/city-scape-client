@@ -35,7 +35,7 @@ const PropertyBought = () => {
               <span className="font-bold">${property.offeredAmount}</span>
             </p>
             <p className="mb-2">Status: {property.status}</p>
-            {property.status === "pending" && (
+            {property.status === "Accepted" && (
               <button
                 onClick={() => handlePay(property._id, property.offeredAmount)}
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
