@@ -1,12 +1,12 @@
 import SectionTitle from "../../../components/Shared/SectionTitle";
 import useAuth from "../../../hooks/useAuth";
 
-const Profile = () => {
+const AgentProfile = () => {
   const { user } = useAuth();
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <SectionTitle heading="User Profile" />
+      <SectionTitle heading="Agent Profile" />
       <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-lg rounded-md overflow-hidden">
         <div className="flex justify-center bg-gray-200">
           <img
@@ -24,4 +24,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default AgentProfile;

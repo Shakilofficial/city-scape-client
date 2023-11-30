@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { getSingleProperties, getSingleWishList } from "../api/properties";
+import { getAllProperties, getSingleProperties, getSingleWishList } from "../api/properties";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Main from "../layouts/Main";
 import AllProperties from "../pages/AllProperties/AllProperties";
@@ -18,6 +18,11 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import ManageReviews from "../pages/Dashboard/ManageReviews/ManageReviews";
 import ManageProperties from "../pages/Dashboard/ManageProperties/ManageProperties";
 import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
+import AgentProfile from "../pages/Dashboard/AgentProfile/AgentProfile";
+import AgentAddedProperties from "../pages/Dashboard/AgentAddedProperties/AgentAddedProperties";
+import AgentSoldProperties from "../pages/Dashboard/AgentSoldProperties/AgentSoldProperties";
+import AgentRequestedProperties from "../pages/Dashboard/AgentRequestedProperties/AgentRequestedProperties";
+import UpdateProperties from "../pages/Dashboard/AgentAddedProperties/UpdateProperties";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +61,7 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      //user Routes
       {
         path: "/dashboard/profile",
         element: <Profile />,
@@ -77,6 +83,30 @@ export const router = createBrowserRouter([
         path: "/dashboard/bookings",
         element: <PropertyBought />,
       },
+
+      //agent Routes
+      {
+        path: "/dashboard/agent-profile",
+        element: <AgentProfile />,
+      },
+      {
+        path: "/dashboard/added-properties",
+        element: <AgentAddedProperties />,
+      },
+      {
+        path: "/dashboard/update-properties/:id",
+        element: <UpdateProperties />,
+        loader: () => getAllProperties(),
+      },
+      {
+        path: "/dashboard/sold-properties",
+        element: <AgentSoldProperties />,
+      },
+      {
+        path: "/dashboard/requested-properties",
+        element: <AgentRequestedProperties />,
+      },
+
       //admin routes
       {
         path: "/dashboard/manage-users",
