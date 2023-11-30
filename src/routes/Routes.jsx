@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
         element: <PropertyBought />,
       },
       {
-        path: "/payment",
+        path: "/dashboard/payment/",
         element: <Payment />,
       },
 

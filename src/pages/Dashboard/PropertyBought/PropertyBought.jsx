@@ -1,16 +1,11 @@
 
+import { Link } from "react-router-dom";
 import SectionTitle from "../../../components/Shared/SectionTitle";
 import usePropertyBought from "../../../hooks/usePropertyBought";
 
 const PropertyBought = () => {
   const [buyingList, refetch] = usePropertyBought();
 
-  const handlePay = (propertyId, offeredAmount) => {
-    // Implement the logic to redirect to the payment page and handle the payment
-    console.log(
-      `Redirect to payment for propertyId: ${propertyId} with amount: ${offeredAmount}`
-    );
-  };
 
   return (
     <div className="container mx-auto mt-8">
@@ -36,12 +31,12 @@ const PropertyBought = () => {
             </p>
             <p className="mb-2">Status: {property.status}</p>
             {property.status === "Accepted" && (
-              <button
-                onClick={() => handlePay(property._id, property.offeredAmount)}
+              <Link to={`/dashboard/payment`}
+               
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
               >
                 Pay
-              </button>
+              </Link>
             )}
             {property.status === "accepted" && (
               <p className="text-green-500">
