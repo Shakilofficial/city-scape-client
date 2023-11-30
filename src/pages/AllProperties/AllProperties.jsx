@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllProperties } from "../../api/properties";
 import SectionTitle from "../../components/Shared/SectionTitle";
 import PropertyCard from "./PropertyCard";
+import { Helmet } from "react-helmet-async";
 
 const AllProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -16,6 +17,9 @@ const AllProperties = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>City Scape | Explore All Properties</title>
+      </Helmet>
       <div>
         <SectionTitle
           subHeading="Explore the All Available Property"

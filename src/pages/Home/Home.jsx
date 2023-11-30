@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner/Banner";
 import Contact from "../../components/Contact/Contact";
 import Faq from "../../components/FAQ/FAQ";
@@ -9,6 +10,9 @@ import Advertisements from "./Advertisements/Advertisements";
 const Home = () => {
   return (
     <div className="my-10 space-y-6">
+      <Helmet>
+        <title>City Scape | Home</title>
+      </Helmet>
       <Banner />
       <Advertisements />
       <Offer />

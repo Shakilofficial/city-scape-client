@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { getToken, saveUser } from "../../api/auth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useAuth();
@@ -59,6 +60,9 @@ const Login = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
+      <Helmet>
+        <title>City Scape | Login Page to access all information</title>
+      </Helmet>
       <div className="py-8 text-center">
         <h1 className="my-3 text-4xl text-sky-500 font-extrabold">Log In</h1>
         <p className="text-sm text-gray-400">Sign in to access your account</p>

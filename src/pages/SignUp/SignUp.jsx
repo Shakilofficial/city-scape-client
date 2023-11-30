@@ -5,6 +5,7 @@ import { imageUpload } from "../../api/utils";
 import { getToken, saveUser } from "../../api/auth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
@@ -70,6 +71,9 @@ const SignUp = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
+      <Helmet>
+        <title>City Scape | Welcome !!! Create a New Account</title>
+      </Helmet>
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-extrabold">Sign Up</h1>
