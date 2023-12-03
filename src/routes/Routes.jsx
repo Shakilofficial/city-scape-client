@@ -28,6 +28,7 @@ import AgentSoldProperties from "../pages/Dashboard/AgentSoldProperties/AgentSol
 import AgentRequestedProperties from "../pages/Dashboard/AgentRequestedProperties/AgentRequestedProperties";
 import UpdateProperties from "../pages/Dashboard/AgentAddedProperties/UpdateProperties";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import AgentAddProperties from "../pages/Dashboard/AgentAddProperties/AgentAddProperties";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/agent-profile",
         element: <AgentProfile />,
+      },
+      {
+        path: "/dashboard/add-properties",
+        element: <AgentAddProperties />,
       },
       {
         path: "/dashboard/added-properties",

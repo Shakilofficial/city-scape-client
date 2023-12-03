@@ -140,7 +140,7 @@ const PropertyDetails = () => {
         </div>
       </div>
       <div className="mt-6 max-w-7xl mx-auto text-center">
-        {/* ... Other property details */}
+        {/* Other property details */}
         <h2 className="text-2xl font-bold text-sky-400 mb-4">
           Customer Reviews
         </h2>

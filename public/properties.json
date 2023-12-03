@@ -1,0 +1,182 @@
+[
+  {
+    "image": "https://i.ibb.co/s1zVwmX/property2.jpg",
+    "title": "Modern Apartment",
+    "location": "123 Main Street, Cityville",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "John Doe",
+      "image": "https://i.ibb.co/W5gQ4DJ/avatar-5.jpghttps://i.ibb.co/W5gQ4DJ/avatar-5.jpg"
+    },
+    "status": "Verified",
+    "price": "1500",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": "1200 sqft",
+      "description": "Modern apartment in the city center with 2 bedrooms, 2 bathrooms, and a spacious living area. Conveniently located with nearby amenities. This stylish apartment offers a comfortable and contemporary living space, making it an ideal choice for urban dwellers seeking convenience and style."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/NZ6gk4w/property1.jpg",
+    "title": "Family Home with Garden",
+    "location": "456 Oak Avenue, Suburbia",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Jane Smith",
+      "image": "https://i.ibb.co/PthLJZz/avatar-1.jpg"
+    },
+    "status": "Verified",
+    "price": "2500",
+    "details": {
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": "2500 sqft",
+      "description": "Spacious family home in a suburban setting with 4 bedrooms, 3 bathrooms, and a beautiful garden. Perfect for a comfortable family life. This home provides ample space for family gatherings and a serene garden for relaxation, creating a perfect blend of comfort and nature."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/th2hD0B/property3.jpg",
+    "title": "Luxurious Penthouse",
+    "location": "789 Skyline Drive, Uptown",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Robert Johnson",
+      "image": "https://i.ibb.co/1GbFMK6/team2.jpg"
+    },
+    "status": "Verified",
+    "price": "4000",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "area": "3000 sqft",
+      "description": "Luxurious penthouse with panoramic views. Features 3 bedrooms, 4 bathrooms, and a spacious living area. Offers a sophisticated and elegant lifestyle. This penthouse provides a lavish living experience with breathtaking views, high-end finishes, and spacious interiors."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/y5pxVm1/property13.jpg",
+    "title": "Charming Lakeside Cottage",
+    "location": "101 Pine Lane, Lakeside",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Emily Brown",
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
+    },
+    "status": "Verified",
+    "price": "2000",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "area": "1000 sqft",
+      "description": "Charming lakeside cottage with 2 bedrooms, 1 bathroom, and a cozy atmosphere. Ideal for those seeking tranquility and natural beauty. This cottage offers a peaceful lakeside retreat with a cozy interior, providing a perfect escape from the hustle and bustle of daily life."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/jLJMz8Y/property12.jpg",
+    "title": "Modern Townhouse",
+    "location": "222 Elm Street, Downtown",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Michael Wilson",
+      "image": "https://i.ibb.co/KFRFMq9/portrait-white-man-isolated-1.jpg"
+    },
+    "status": "Available",
+    "price": "2200",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": "2200 sqft",
+      "description": "Modern townhouse with a rooftop terrace. Includes 3 bedrooms, 2 bathrooms, and contemporary living in the heart of downtown with city views. This townhouse offers a modern and stylish living space, with a rooftop terrace providing a stunning view of the city skyline."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/C1kc053/property7.jpg",
+    "title": "Secluded Mountain Retreat",
+    "location": "333 Summit Trail, Mountainside",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Samantha Taylor",
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
+    },
+    "status": "Rejected",
+    "price": "4500",
+    "details": {
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": "3500 sqft",
+      "description": "Secluded mountain retreat with 4 bedrooms, 3 bathrooms, and stunning natural surroundings. Experience the serenity of mountain living with modern amenities. This mountain retreat offers a peaceful and private escape, surrounded by nature and providing a spacious and comfortable living space."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/XFc9KB8/property10.jpg",
+    "title": "Cozy Suburban House",
+    "location": "789 Maple Lane, Suburbia",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "David Miller",
+      "image": "https://i.ibb.co/PthLJZz/avatar-1.jpg"
+    },
+    "status": "Available",
+    "price": "2500",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": "1800 sqft",
+      "description": "Cozy suburban house with 3 bedrooms, 2 bathrooms, and a welcoming atmosphere. Perfect for those seeking a relaxed suburban lifestyle with easy access to local amenities. This charming house provides a cozy and inviting living space in a peaceful suburban neighborhood."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/DG1jSyJ/property4.jpg",
+    "title": "Historic City Loft",
+    "location": "456 Brick Lane, Historic District",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Ella Johnson",
+      "image": "https://i.ibb.co/W5gQ4DJ/avatar-5.jpg"
+    },
+    "status": "Rejected",
+    "price": "3500",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": "1500 sqft",
+      "description": "Historic city loft with 2 bedrooms, 2 bathrooms, and unique architectural features. Experience the charm of the city's history with modern amenities. This loft offers a unique blend of historic charm and modern comfort, making it an ideal residence for those who appreciate architectural character."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/bsXwxCP/property6.jpg",
+    "title": "Contemporary Beachfront Villa",
+    "location": "789 Oceanview Drive, Beachside",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "Olivia White",
+      "image": "https://i.ibb.co/TYzF7yn/avatar-3.jpg"
+    },
+    "status": "Verified",
+    "price": "6000",
+    "details": {
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "area": "4500 sqft",
+      "description": "Contemporary beachfront villa with 5 bedrooms, 4 bathrooms, and direct access to the beach. Enjoy luxury living with panoramic ocean views. This beachfront villa offers a contemporary and luxurious living experience, with spacious interiors and direct access to the beautiful sandy beach."
+    }
+  },
+  {
+    "image": "https://i.ibb.co/rF9vhZC/property9.jpg",
+    "title": "Rustic Countryside Retreat",
+    "location": "101 Meadow Lane, Countryside",
+    "email": "agent@example.com",
+    "agent": {
+      "name": "William Turner",
+      "image": "https://i.ibb.co/KFRFMq9/portrait-white-man-isolated-1.jpg"
+    },
+    "status": "Rejected",
+    "price": "3000",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": "2000 sqft",
+      "description": "Rustic countryside retreat with 3 bedrooms, 2 bathrooms, and expansive outdoor space. Experience the charm of the countryside with modern comforts. This countryside retreat offers a rustic yet comfortable living space, surrounded by nature and featuring a spacious outdoor area for relaxation and enjoyment."
+    }
+  }
+]
